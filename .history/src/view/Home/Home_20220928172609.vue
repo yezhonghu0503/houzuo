@@ -1,5 +1,6 @@
 <script lang="ts">
-import { ref, getCurrentInstance, onMounted } from "vue";
+
+import { ref,getCurrentInstance, onMounted } from "vue";
 import {
   useRouter,
   useRoute,
@@ -12,31 +13,20 @@ export default {
     //路由跳转
     const router = useRouter();
     const route = useRoute();
-    function goInteriorDecoration(event: any) {
+    function goInteriorDecoration(event:any){
       let rawText = event.target.innerText;
-      let menuName = rawText.substr(0, rawText.indexOf("\n"));
-      console.log(menuName);
-      switch (menuName) {
-        case "炫彩刷新":
-          router.push({
-            path: "/interiorDecoration",
-          });
-        case "微装翻新":
-          router.push({
-            path: "/interiorDecoration",
-          });
-        case "整装定制":
-          router.push({
-            path: "/interiorDecoration",
-          });  
-      }
+      let menuName = rawText.substr(0,rawText.indexOf('\n'));
+      console.log(menuName)
+      router.push({
+        path:'/interiorDecoration'
+      })
     }
     let menulist = [
       {
         logoUrl: "src/static/刷子.png",
         menuName: "炫彩刷新",
         menuAlias: "Wall Color",
-        gotoPage: goInteriorDecoration,
+        gotoPage:goInteriorDecoration
       },
       {
         logoUrl: "src/static/床头柜.png",
@@ -66,7 +56,7 @@ export default {
     ];
     return {
       menulist,
-      goInteriorDecoration,
+      goInteriorDecoration
     };
   },
 };
@@ -92,12 +82,7 @@ export default {
   </div>
   <div id="main">
     <el-row justify="center">
-      <el-col
-        @click="goInteriorDecoration"
-        class="menu-col"
-        v-for="item in menulist"
-        :span="11"
-      >
+      <el-col @click="goInteriorDecoration" class="menu-col" v-for="item in menulist" :span="11">
         <div class="menu">
           <div class="submenu">
             <img class="menu-logo" :src="item.logoUrl" alt="" />
@@ -110,12 +95,12 @@ export default {
       </el-col>
       <el-col class="menu-col" :span="11">
         <div class="more">
-          <el-icon style="margin-left: 10px" size="22px" color="#636e72"
-            ><Expand
-          /></el-icon>
+          <el-icon style="margin-left:10px" size="22px" color="#636e72"><Expand /></el-icon>
         </div>
       </el-col>
-      <el-col :span="11"> </el-col>
+      <el-col :span="11">
+        
+      </el-col>
     </el-row>
   </div>
 </template>
@@ -171,8 +156,8 @@ export default {
   height: 4em;
   background: rgb(255, 255, 255);
   margin: 20px 0;
-  display: flex;
+  display:flex;
   justify-content: start;
-  align-items: center;
+  align-items:center;
 }
 </style>

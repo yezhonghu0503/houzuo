@@ -8,8 +8,7 @@ import Home from "./view/Home/Home.vue";
 </script>
 
 <template>
-  <!-- <Home></Home> -->
-  <router-view />
+  <Home></Home>
 </template>
 
 <style>

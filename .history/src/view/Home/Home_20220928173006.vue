@@ -21,14 +21,6 @@ export default {
           router.push({
             path: "/interiorDecoration",
           });
-        case "微装翻新":
-          router.push({
-            path: "/interiorDecoration",
-          });
-        case "整装定制":
-          router.push({
-            path: "/interiorDecoration",
-          });  
       }
     }
     let menulist = [
