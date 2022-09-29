@@ -316,10 +316,18 @@ export default {
           <el-col :span="12"
             ><h3 class="tiles-package-name">
               康居套餐
-              <div class="tiles-package-introduce">12</div>
+              <div class="tiles-package-introduce">
+                陶瓷墙地砖300集成吊顶、灯具
+              </div>
             </h3></el-col
           >
           <el-col :span="12"><div class="tiles-package-price">123</div></el-col>
+        </el-row>
+        <el-row class="tiles-down" justify="end">
+          <el-col :span="6" >拆护费用<div>200.00</div></el-col>
+          <el-col :span="6" >
+            翻新费用<div>3369.00</div>
+          </el-col>
         </el-row>
       </div>
     </el-col>
@@ -389,24 +397,28 @@ export default {
 }
 .tiles-up {
   height: 100px;
-  background: bisque;
 }
-.tiles-package-name{
+.tiles-package-name {
   margin-left: 20px;
   text-align: left;
   margin-top: 10px;
 }
-.tiles-package-price{
-
-
-height: 100px;
-font-size: 20px;
-font-weight: 700;
-line-height: 80px;
-color: rgba(42, 130, 228, 1);
-margin-right: 20px;
-text-align: right;
-
-
+.tiles-package-price {
+  height: 100px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 80px;
+  color: rgba(42, 130, 228, 1);
+  margin-right: 20px;
+  text-align: right;
+}
+.tiles-package-introduce {
+  width: 100px;
+  font-size: 10px;
+  font-weight: 400;
+}
+.tiles-down{
+  margin-top: 10px;
+  font-size: 10px;
 }
 </style>
