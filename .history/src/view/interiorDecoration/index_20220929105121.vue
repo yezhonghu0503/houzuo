@@ -6,33 +6,25 @@ import {
   onBeforeRouteLeave,
   onBeforeRouteUpdate,
 } from "vue-router";
-import Renovate from "./renovate.vue";
+const activeIndex = ref("1");
+const activeIndex2 = ref("1");
+const handleSelect = (key: string, keyPath: string[]) => {
+  console.log(key, keyPath);
+};
 export default {
-  components: {
-    Renovate,
-  },
   setup() {
-    //菜单
-    const menuList: string[] = ["炫彩刷新", "微装翻新", "全屋整装"];
-    const activeIndex = ref(0);
-    const handleSelect = (key: string, keyPath: string[]) => {
-      console.log(key, keyPath);
-    };
     const router = useRouter();
     const route = useRoute();
     let timenow: string = new Date().toJSON().substring(0, 7);
 
     return {
       timenow,
-      menuList,
-      activeIndex,
-      handleSelect,
     };
   },
 };
 </script>
     
-<template>
+    <template>
   <div id="head">
     <el-row class="head-row" :gutter="2">
       <el-col :span="16">
@@ -89,24 +81,20 @@ export default {
           />
         </svg>
       </el-col>
-    </el-row>
+      </el-row>
   </div>
   <div id="main">
     <el-menu
-      :default-active="activeIndex"
-      class="el-menu-demo"
-      mode="horizontal"
-      @select="handleSelect"
-    >
-      <el-menu-item
-        @click="handleSelect"
-        v-for="(item, index) in menuList"
-        :index="index"
-        >{{ item }}</el-menu-item
+        :default-active="activeIndex"
+        class="el-menu-demo"
+        mode="horizontal"
+        @select="handleSelect"
       >
-    </el-menu>
-    <div class="h-6" />
-    <Renovate />
+        <el-menu-item index="1">炫彩刷新</el-menu-item>
+        <el-menu-item index="2">微装翻新</el-menu-item>
+        <el-menu-item index="3">全屋整装</el-menu-item>
+      </el-menu>
+      <div class="h-6" />
   </div>
 </template>
     
@@ -149,10 +137,7 @@ export default {
   text-align: left;
   margin-left: 20px;
 }
-.el-menu-demo {
-  width: 98vw;
-  margin: 0 auto;
-  background: #f6f6f6;
-  height: 40px;
+.el-menu-demo{
+  background: rgb(233, 233, 233);
 }
 </style>

@@ -1,0 +1,23 @@
+<script lang="ts">
+export default {
+  setup() {},
+};
+</script>
+<template>
+  <el-row :gutter="20" class="tool-menu" justify="center">
+    <el-col v-for="item in 4" :span="6">
+        <div class="tool-main"></div>
+    </el-col>
+  </el-row>
+</template>
+
+<style>
+.tool-menu {
+  height: 40px;
+  line-height: 40px;
+  margin-top: 20px;
+}
+.tool-main {
+  background: white;
+}
+</style>

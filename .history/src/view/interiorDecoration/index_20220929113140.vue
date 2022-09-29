@@ -6,15 +6,10 @@ import {
   onBeforeRouteLeave,
   onBeforeRouteUpdate,
 } from "vue-router";
-import Renovate from "./renovate.vue";
+
 export default {
-  components: {
-    Renovate,
-  },
   setup() {
-    //菜单
-    const menuList: string[] = ["炫彩刷新", "微装翻新", "全屋整装"];
-    const activeIndex = ref(0);
+    const activeIndex = ref("1");
     const handleSelect = (key: string, keyPath: string[]) => {
       console.log(key, keyPath);
     };
@@ -24,7 +19,6 @@ export default {
 
     return {
       timenow,
-      menuList,
       activeIndex,
       handleSelect,
     };
@@ -32,7 +26,7 @@ export default {
 };
 </script>
     
-<template>
+    <template>
   <div id="head">
     <el-row class="head-row" :gutter="2">
       <el-col :span="16">
@@ -98,15 +92,11 @@ export default {
       mode="horizontal"
       @select="handleSelect"
     >
-      <el-menu-item
-        @click="handleSelect"
-        v-for="(item, index) in menuList"
-        :index="index"
-        >{{ item }}</el-menu-item
-      >
+      <el-menu-item @click="handleSelect" index="1">炫彩刷新</el-menu-item>
+      <el-menu-item index="2">微装翻新</el-menu-item>
+      <el-menu-item index="3">全屋整装</el-menu-item>
     </el-menu>
     <div class="h-6" />
-    <Renovate />
   </div>
 </template>
     

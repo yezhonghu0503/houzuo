@@ -6,43 +6,27 @@ import {
   onBeforeRouteLeave,
   onBeforeRouteUpdate,
 } from "vue-router";
-import Renovate from "./renovate.vue";
 export default {
-  components: {
-    Renovate,
-  },
   setup() {
-    //菜单
-    const menuList: string[] = ["炫彩刷新", "微装翻新", "全屋整装"];
-    const activeIndex = ref(0);
-    const handleSelect = (key: string, keyPath: string[]) => {
-      console.log(key, keyPath);
-    };
     const router = useRouter();
     const route = useRoute();
-    let timenow: string = new Date().toJSON().substring(0, 7);
-
+    let timenow:string = new Date().toJSON().substring(0,7);
+    
     return {
-      timenow,
-      menuList,
-      activeIndex,
-      handleSelect,
-    };
+      timenow
+    }
   },
 };
 </script>
     
-<template>
+    <template>
   <div id="head">
     <el-row class="head-row" :gutter="2">
       <el-col :span="16">
         <el-container class="head-tit">
           <el-header>Header</el-header>
-          <el-footer
-            ><h1>
-              炫彩刷新<font class="timeshow">{{ timenow }}</font>
-            </h1>
-          </el-footer>
+          <el-footer><h1>炫彩刷新<font class="timeshow">{{timenow}}</font></h1>
+            </el-footer>
         </el-container>
       </el-col>
       <el-col :span="8" align="middle">
@@ -91,23 +75,6 @@ export default {
       </el-col>
     </el-row>
   </div>
-  <div id="main">
-    <el-menu
-      :default-active="activeIndex"
-      class="el-menu-demo"
-      mode="horizontal"
-      @select="handleSelect"
-    >
-      <el-menu-item
-        @click="handleSelect"
-        v-for="(item, index) in menuList"
-        :index="index"
-        >{{ item }}</el-menu-item
-      >
-    </el-menu>
-    <div class="h-6" />
-    <Renovate />
-  </div>
 </template>
     
     <style>
@@ -139,20 +106,14 @@ export default {
   text-align: left;
   /*vertical-align: top;*/
 }
-.timeshow {
-  /** 文本1 */
-  font-size: 18px;
-  font-weight: 500;
-  letter-spacing: 0px;
-  line-height: 0px;
-  color: rgba(255, 87, 51, 1);
-  text-align: left;
-  margin-left: 20px;
-}
-.el-menu-demo {
-  width: 98vw;
-  margin: 0 auto;
-  background: #f6f6f6;
-  height: 40px;
+.timeshow{
+/** 文本1 */
+font-size: 20px;
+font-weight: 500;
+letter-spacing: 0px;
+line-height: 0px;
+color: rgba(255, 87, 51, 1);
+text-align: left;
+margin-left: 20px;
 }
 </style>

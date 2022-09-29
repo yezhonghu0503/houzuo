@@ -14,7 +14,7 @@ import Home from "./view/Home/Home.vue";
 
 <style>
 body {
-  background: #f6f6f6;
+  background: #E9E9E9;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
