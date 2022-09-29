@@ -1,10 +1,27 @@
 <script lang="ts">
+import { ref } from "vue";
 export default {
   setup() {
-    let selectList = [1, 2, 3, 4];
-
+    // let [paintColor,digital] = [["已下单发货", "未下单"],["厨房空间","卫浴空间","阳台空间"]];
+    let paintAndDigit = [
+      {
+        toolname: "微装空间",
+        selectlist: ["厨房空间", "卫浴空间", "阳台空间"],
+      },
+      {
+        toolname: "配套装备",
+        selectlist: ["已下单发货", "未下单"],
+      },
+    ];
+    let defaultParameter = null;
+    function getToolSelect(e: any) {
+      defaultParameter = e.target.innerText;
+      console.log(defaultParameter);
+    }
     return {
-      selectList,
+      paintAndDigit,
+      getToolSelect,
+      defaultParameter,
     };
   },
 };
@@ -19,26 +36,291 @@ export default {
         </div>
       </div>
     </el-col>
-    <el-col v-for="item in 2" :span="6">
+    <el-col v-for="item in paintAndDigit" :span="6">
       <div class="tool-main">
-        <div class="tool-name">测量面积</div>
+        <div class="tool-name">{{ item.toolname }}</div>
         <div class="tool-parameter">
           <el-dropdown class="tool-dropdown">
             <span class="el-dropdown-link">
-              1231
+              <!-- {{defaultParameter?defaultParameter:item.selectlist[0]}} -->
+              {{ defaultParameter }}
               <el-icon class="el-icon--right">
                 <arrow-down />
               </el-icon>
             </span>
             <template #dropdown>
               <el-dropdown-menu>
-                <el-dropdown-item v-for="item in selectList">{{
-                  item
-                }}</el-dropdown-item>
+                <el-dropdown-item
+                  @click="getToolSelect"
+                  v-for="items in item.selectlist"
+                  >{{ items }}</el-dropdown-item
+                >
               </el-dropdown-menu>
             </template>
           </el-dropdown>
         </div>
+      </div>
+    </el-col>
+  </el-row>
+  <el-row class="instruction-list">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      width="25"
+      height="25"
+      viewBox="0 0 30 30"
+      fill="none"
+    >
+      <defs><rect id="path_0" x="0" y="0" width="30" height="30" /></defs>
+      <g opacity="1" transform="translate(0 0)  rotate(0 15 15)">
+        <mask id="bg-mask-0" fill="white">
+          <use xlink:href="#path_0"></use>
+        </mask>
+        <g mask="url(#bg-mask-0)">
+          <path
+            id="路径 1"
+            fill-rule="evenodd"
+            style="fill: #e9e9e9"
+            transform="translate(0 0)  rotate(0 15 15)"
+            opacity="0.01"
+            d="M0,30L30,30L30,0L0,0L0,30Z "
+          />
+          <path
+            id="路径 2"
+            style="
+              stroke: #383838;
+              stroke-width: 1.3333333333333333;
+              stroke-opacity: 1;
+              stroke-dasharray: 0 0;
+            "
+            transform="translate(17.499999999999996 20.312499999999996)  rotate(0 4.375 1.7763568394002505e-15)"
+            d="M0,0L8.75,0 "
+          />
+          <path
+            id="路径 3"
+            style="
+              stroke: #383838;
+              stroke-width: 1.3333333333333333;
+              stroke-opacity: 1;
+              stroke-dasharray: 0 0;
+            "
+            transform="translate(17.499999999999996 25.937499999999993)  rotate(0 4.375 1.7763568394002505e-15)"
+            d="M0,0L8.75,0 "
+          />
+          <path
+            id="路径 4"
+            style="
+              stroke: #383838;
+              stroke-width: 1.3333333333333333;
+              stroke-opacity: 1;
+              stroke-dasharray: 0 0;
+            "
+            transform="translate(3.75 8.124999999999998)  rotate(0 4.999999999999999 0)"
+            d="M0,0L10,0 "
+          />
+          <path
+            id="路径 5"
+            style="
+              stroke: #383838;
+              stroke-width: 1.3333333333333333;
+              stroke-opacity: 1;
+              stroke-dasharray: 0 0;
+            "
+            transform="translate(8.749999999999998 3.1249999999999996)  rotate(0 0 5)"
+            d="M0,0L0,10 "
+          />
+          <path
+            id="路径 6"
+            style="
+              stroke: #383838;
+              stroke-width: 1.3333333333333333;
+              stroke-opacity: 1;
+              stroke-dasharray: 0 0;
+            "
+            transform="translate(3.75 3.1249999999999996)  rotate(0 11.25 11.249999999999998)"
+            d="M22.5,0L0,22.5 "
+          />
+        </g>
+      </g>
+    </svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      width="25"
+      height="25"
+      viewBox="0 0 30 30"
+      fill="none"
+    >
+      <defs><rect id="path_0" x="0" y="0" width="30" height="30" /></defs>
+      <g opacity="1" transform="translate(0 0)  rotate(0 15 15)">
+        <mask id="bg-mask-0" fill="white">
+          <use xlink:href="#path_0"></use>
+        </mask>
+        <g mask="url(#bg-mask-0)">
+          <path
+            id="路径 1"
+            style="
+              stroke: #383838;
+              stroke-width: 1.3333333333333333;
+              stroke-opacity: 1;
+              stroke-dasharray: 0 0;
+            "
+            transform="translate(26.25 4.999999999999999)  rotate(0 0 5)"
+            d="M0,0L0,10 "
+          />
+          <path
+            id="路径 2"
+            style="
+              stroke: #383838;
+              stroke-width: 1.3333333333333333;
+              stroke-opacity: 1;
+              stroke-dasharray: 0 0;
+            "
+            transform="translate(3.75 15)  rotate(0 0 4.999999999999998)"
+            d="M0,0L0,10 "
+          />
+          <path
+            id="路径 3"
+            style="
+              stroke: #383838;
+              stroke-width: 1.3333333333333333;
+              stroke-opacity: 1;
+              stroke-dasharray: 0 0;
+            "
+            transform="translate(3.75 15)  rotate(0 9.531249999999998 5.625)"
+            d="M0,0C0,6.21 5.04,11.25 11.25,11.25C14.28,11.25 17.04,10.05 19.06,8.09 "
+          />
+          <path
+            id="路径 4"
+            style="
+              stroke: #383838;
+              stroke-width: 1.3333333333333333;
+              stroke-opacity: 1;
+              stroke-dasharray: 0 0;
+            "
+            transform="translate(6.905499999999998 3.75)  rotate(0 9.672468749999998 5.625)"
+            d="M19.34,11.25C19.34,5.04 14.31,0 8.09,0C4.92,0 2.05,1.32 0,3.44 "
+          />
+        </g>
+      </g>
+    </svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      width="25"
+      height="25"
+      viewBox="0 0 30 30"
+      fill="none"
+    >
+      <defs><rect id="path_0" x="0" y="0" width="30" height="30" /></defs>
+      <g opacity="0.81" transform="translate(0 0)  rotate(0 15 15)">
+        <mask id="bg-mask-0" fill="white">
+          <use xlink:href="#path_0"></use>
+        </mask>
+        <g mask="url(#bg-mask-0)">
+          <path
+            id="路径 1"
+            fill-rule="evenodd"
+            style="fill: #e9e9e9"
+            transform="translate(0 0)  rotate(0 15 15)"
+            opacity="0.01"
+            d="M0,30L30,30L30,0L0,0L0,30Z "
+          />
+          <path
+            id="路径 2"
+            fill-rule="evenodd"
+            style="fill: #333333"
+            transform="translate(18.75 3.75)  rotate(0 3.1249999999999996 3.1249999999999996)"
+            opacity="1"
+            d="M6.25,3.12C6.25,1.4 4.85,0 3.12,0C1.4,0 0,1.4 0,3.12C0,4.85 1.4,6.25 3.12,6.25C4.85,6.25 6.25,4.85 6.25,3.12Z "
+          />
+          <path
+            id="路径 2"
+            style="
+              stroke: #383838;
+              stroke-width: 1.3333333333333333;
+              stroke-opacity: 1;
+              stroke-dasharray: 0 0;
+            "
+            transform="translate(18.75 3.75)  rotate(0 3.1249999999999996 3.1249999999999996)"
+            d="M6.25,3.12C6.25,1.4 4.85,0 3.12,0C1.4,0 0,1.4 0,3.12C0,4.85 1.4,6.25 3.12,6.25C4.85,6.25 6.25,4.85 6.25,3.12Z "
+          />
+          <path
+            id="路径 3"
+            fill-rule="evenodd"
+            style="fill: #333333"
+            transform="translate(4.999999999999999 11.874999999999998)  rotate(0 3.1249999999999996 3.1249999999999996)"
+            opacity="1"
+            d="M6.25,3.12C6.25,1.4 4.85,0 3.12,0C1.4,0 0,1.4 0,3.12C0,4.85 1.4,6.25 3.12,6.25C4.85,6.25 6.25,4.85 6.25,3.12Z "
+          />
+          <path
+            id="路径 3"
+            style="
+              stroke: #383838;
+              stroke-width: 1.3333333333333333;
+              stroke-opacity: 1;
+              stroke-dasharray: 0 0;
+            "
+            transform="translate(4.999999999999999 11.874999999999998)  rotate(0 3.1249999999999996 3.1249999999999996)"
+            d="M6.25,3.12C6.25,1.4 4.85,0 3.12,0C1.4,0 0,1.4 0,3.12C0,4.85 1.4,6.25 3.12,6.25C4.85,6.25 6.25,4.85 6.25,3.12Z "
+          />
+          <path
+            id="路径 4"
+            style="
+              stroke: #383838;
+              stroke-width: 1.3333333333333333;
+              stroke-opacity: 1;
+              stroke-dasharray: 0 0;
+            "
+            transform="translate(10.836749999999999 8.4840625)  rotate(0 3.9565937499999997 2.397156249999999)"
+            d="M7.91,0L0,4.79 "
+          />
+          <path
+            id="路径 5"
+            style="
+              stroke: #383838;
+              stroke-width: 1.3333333333333333;
+              stroke-opacity: 1;
+              stroke-dasharray: 0 0;
+            "
+            transform="translate(10.836749999999999 16.6024375)  rotate(0 4.168874999999998 2.4634375000000013)"
+            d="M0,0L8.34,4.93 "
+          />
+          <path
+            id="路径 6"
+            fill-rule="evenodd"
+            style="fill: #333333"
+            transform="translate(18.75 19.999999999999996)  rotate(0 3.1249999999999996 3.1249999999999996)"
+            opacity="1"
+            d="M0,3.12C0,4.85 1.4,6.25 3.12,6.25C4.85,6.25 6.25,4.85 6.25,3.12C6.25,1.4 4.85,0 3.12,0C1.4,0 0,1.4 0,3.12Z "
+          />
+          <path
+            id="路径 6"
+            style="
+              stroke: #383838;
+              stroke-width: 1.3333333333333333;
+              stroke-opacity: 1;
+              stroke-dasharray: 0 0;
+            "
+            transform="translate(18.75 19.999999999999996)  rotate(0 3.1249999999999996 3.1249999999999996)"
+            d="M0,3.12C0,4.85 1.4,6.25 3.12,6.25C4.85,6.25 6.25,4.85 6.25,3.12C6.25,1.4 4.85,0 3.12,0C1.4,0 0,1.4 0,3.12Z "
+          />
+        </g>
+      </g>
+    </svg>
+  </el-row>
+  <el-row justify="center">
+    <el-col class="tiles" v-for="item in 3" :span="24">
+      <div class="show-tiles">
+        <el-row class="tiles-up">
+          <el-col :span="12"
+            ><h3 class="tiles-package-name">
+              康居套餐
+              <div class="tiles-package-introduce">12</div>
+            </h3></el-col
+          >
+          <el-col :span="12"><div class="tiles-package-price">123</div></el-col>
+        </el-row>
       </div>
     </el-col>
   </el-row>
@@ -82,9 +364,48 @@ export default {
 .tool-dropdown {
   height: 55px;
   line-height: 55px;
-font-size: 14px;
-font-weight: 400;
-color: rgba(212, 48, 48, 1);
+  font-size: 10px;
+  font-weight: 400;
+  color: rgba(212, 48, 48, 1);
+}
+.instruction-list {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+.instruction-list svg {
+  margin-right: 15px;
+}
+.tiles {
+  height: 150px;
+  margin-top: 15px;
+}
+.show-tiles {
+  width: 92vw;
+  height: 150px;
+  margin: 0 auto;
+  background: white;
+}
+.tiles-up {
+  height: 100px;
+  background: bisque;
+}
+.tiles-package-name{
+  margin-left: 20px;
+  text-align: left;
+  margin-top: 10px;
+}
+.tiles-package-price{
+
+
+height: 100px;
+font-size: 20px;
+font-weight: 700;
+line-height: 80px;
+color: rgba(42, 130, 228, 1);
+margin-right: 20px;
+text-align: right;
 
 
 }
