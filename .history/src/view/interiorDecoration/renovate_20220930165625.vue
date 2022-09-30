@@ -16,7 +16,9 @@ let defaultParameter = ref("");
 function getToolSelect(index: any, event: any) {
   paintAndDigit[index].selectedtoolname = event.target.innerText;
 }
-
+function demo(e:any){
+  console.log(e)
+}
 export default {
   setup() {
     // let [paintColor,digital] = [["已下单发货", "未下单"],["厨房空间","卫浴空间","阳台空间"]];
@@ -25,6 +27,7 @@ export default {
       paintAndDigit,
       getToolSelect,
       defaultParameter,
+      demo
     };
   },
 };
@@ -35,7 +38,7 @@ export default {
       <div class="tool-main">
         <div class="tool-name">测量面积</div>
         <div class="tool-parameter">
-          <input class="tool-input" maxlength="6" onkeyup="this.value=(this.value.match(/\d+(\.\d{0,2})?/)||[''])[0]"  type="text" value="00.0" />
+          <input class="tool-input" v-model="value"  :oninput="value=value.replace(/[^\d]/g,'')" type="text" placeholder="0.00" />
         </div>
       </div>
     </el-col>

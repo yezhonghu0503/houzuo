@@ -1,26 +1,26 @@
 <script lang="ts" >
 import { reactive, ref } from "vue";
-let paintAndDigit = reactive([
-  {
-    toolname: "微装空间",
-    selectedtoolname: "厨房空间",
-    selectlist: ["厨房空间", "卫浴空间", "阳台空间"],
-  },
-  {
-    toolname: "配套装备",
-    selectedtoolname: "已下单发货",
-    selectlist: ["已下单发货", "未下单"],
-  },
-]);
-let defaultParameter = ref("");
-function getToolSelect(index: any, event: any) {
-  paintAndDigit[index].selectedtoolname = event.target.innerText;
-}
-
 export default {
   setup() {
     // let [paintColor,digital] = [["已下单发货", "未下单"],["厨房空间","卫浴空间","阳台空间"]];
-    
+    let paintAndDigit = reactive([
+      {
+        toolname: "微装空间",
+        selectedtoolname: "厨房空间",
+        selectlist: ["厨房空间", "卫浴空间", "阳台空间"],
+      },
+      {
+        toolname: "配套装备",
+        selectedtoolname: "已下单发货",
+        selectlist: ["已下单发货", "未下单"],
+      },
+    ])
+    let defaultParameter = ref("");
+    function getToolSelect(index: any, event: any) {
+      //   defaultParameter.value = e.target.innerText;
+      paintAndDigit[index].selectedtoolname = event.target.innerText;
+      console.log(index);
+    }
     return {
       paintAndDigit,
       getToolSelect,
@@ -35,7 +35,7 @@ export default {
       <div class="tool-main">
         <div class="tool-name">测量面积</div>
         <div class="tool-parameter">
-          <input class="tool-input" maxlength="6" onkeyup="this.value=(this.value.match(/\d+(\.\d{0,2})?/)||[''])[0]"  type="text" value="00.0" />
+          <input class="tool-input" type="text" value="00.0" />
         </div>
       </div>
     </el-col>

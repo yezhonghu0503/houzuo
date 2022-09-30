@@ -39,7 +39,7 @@ export default {
           <el-header>Header</el-header>
           <el-footer
             ><h1>
-              炫彩刷新<font class="timeshow">{{timenow}}</font>
+              炫彩刷新<font class="timeshow">123</font>
             </h1>
           </el-footer>
         </el-container>

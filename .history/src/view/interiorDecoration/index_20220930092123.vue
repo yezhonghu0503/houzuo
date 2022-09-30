@@ -21,11 +21,17 @@ export default {
     const router = useRouter();
     const route = useRoute();
     let timenow: string = new Date().toJSON().substring(0, 7);
+    let dd = 0;
+    function demo(){
+      dd = 1213;
+    }
     return {
       timenow,
       menuList,
       activeIndex,
-      handleSelect
+      handleSelect,
+      demo,
+      dd
     };
   },
 };
@@ -39,7 +45,7 @@ export default {
           <el-header>Header</el-header>
           <el-footer
             ><h1>
-              炫彩刷新<font class="timeshow">{{timenow}}</font>
+              炫彩刷新<font class="timeshow">{{ dd }}</font>
             </h1>
           </el-footer>
         </el-container>
@@ -98,7 +104,7 @@ export default {
       @select="handleSelect"
     >
       <el-menu-item
-        @click="handleSelect"
+      @click="demo"
         v-for="(item, index) in menuList"
         :index="index"
         >{{ item }}</el-menu-item

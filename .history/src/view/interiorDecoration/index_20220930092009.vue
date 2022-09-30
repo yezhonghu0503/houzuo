@@ -21,11 +21,15 @@ export default {
     const router = useRouter();
     const route = useRoute();
     let timenow: string = new Date().toJSON().substring(0, 7);
+    let dd = 0;
+    function demo(){
+      dd = 1213;
+    }
     return {
       timenow,
       menuList,
       activeIndex,
-      handleSelect
+      handleSelect,
     };
   },
 };
@@ -37,9 +41,9 @@ export default {
       <el-col :span="16">
         <el-container class="head-tit">
           <el-header>Header</el-header>
-          <el-footer
+          <el-footer @click="demo"
             ><h1>
-              炫彩刷新<font class="timeshow">{{timenow}}</font>
+              炫彩刷新<font class="timeshow">{{ dd }}</font>
             </h1>
           </el-footer>
         </el-container>

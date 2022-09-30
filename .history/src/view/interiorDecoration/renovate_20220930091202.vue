@@ -1,26 +1,23 @@
-<script lang="ts" >
-import { reactive, ref } from "vue";
-let paintAndDigit = reactive([
-  {
-    toolname: "微装空间",
-    selectedtoolname: "厨房空间",
-    selectlist: ["厨房空间", "卫浴空间", "阳台空间"],
-  },
-  {
-    toolname: "配套装备",
-    selectedtoolname: "已下单发货",
-    selectlist: ["已下单发货", "未下单"],
-  },
-]);
-let defaultParameter = ref("");
-function getToolSelect(index: any, event: any) {
-  paintAndDigit[index].selectedtoolname = event.target.innerText;
-}
-
+<script lang="ts" setup>
+import { ref } from "vue";
 export default {
   setup() {
     // let [paintColor,digital] = [["已下单发货", "未下单"],["厨房空间","卫浴空间","阳台空间"]];
-    
+    let paintAndDigit = [
+      {
+        toolname: "微装空间",
+        selectlist: ["厨房空间", "卫浴空间", "阳台空间"],
+      },
+      {
+        toolname: "配套装备",
+        selectlist: ["已下单发货", "未下单"],
+      },
+    ];
+    let defaultParameter = null;
+    function getToolSelect(e: any) {
+      defaultParameter = e.target.innerText;
+      console.log(defaultParameter);
+    }
     return {
       paintAndDigit,
       getToolSelect,
@@ -35,18 +32,18 @@ export default {
       <div class="tool-main">
         <div class="tool-name">测量面积</div>
         <div class="tool-parameter">
-          <input class="tool-input" maxlength="6" onkeyup="this.value=(this.value.match(/\d+(\.\d{0,2})?/)||[''])[0]"  type="text" value="00.0" />
+          <input class="tool-input" type="text" value="00.0" />
         </div>
       </div>
     </el-col>
-    <el-col v-for="(item, index) in paintAndDigit" :span="6">
+    <el-col v-for="item in paintAndDigit" :span="6">
       <div class="tool-main">
         <div class="tool-name">{{ item.toolname }}</div>
         <div class="tool-parameter">
           <el-dropdown class="tool-dropdown">
             <span class="el-dropdown-link">
-              <!-- {{ defaultParameter ? defaultParameter : item.selectlist[0] }} -->
-              {{ item.selectedtoolname }}
+              <!-- {{defaultParameter?defaultParameter:item.selectlist[0]}} -->
+              {{ defaultParameter }}
               <el-icon class="el-icon--right">
                 <arrow-down />
               </el-icon>
@@ -54,7 +51,7 @@ export default {
             <template #dropdown>
               <el-dropdown-menu>
                 <el-dropdown-item
-                  @click="getToolSelect(index, $event)"
+                  @click="getToolSelect"
                   v-for="items in item.selectlist"
                   >{{ items }}</el-dropdown-item
                 >
@@ -327,13 +324,9 @@ export default {
           <el-col :span="12"><div class="tiles-package-price">123</div></el-col>
         </el-row>
         <el-row class="tiles-down" justify="end">
-          <el-col :span="6"
-            >拆护费用
-            <div>{{ demo }}</div></el-col
-          >
-          <el-col :span="6">
-            翻新费用
-            <div>3369.00</div>
+          <el-col :span="6" >拆护费用<div>200.00</div></el-col>
+          <el-col :span="6" >
+            翻新费用<div>3369.00</div>
           </el-col>
         </el-row>
       </div>
@@ -424,7 +417,7 @@ export default {
   font-size: 10px;
   font-weight: 400;
 }
-.tiles-down {
+.tiles-down{
   margin-top: 10px;
   font-size: 10px;
 }

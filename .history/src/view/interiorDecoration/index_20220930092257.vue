@@ -15,8 +15,10 @@ export default {
     //菜单
     const menuList: string[] = ["炫彩刷新", "微装翻新", "全屋整装"];
     const activeIndex = ref(0);
+    let dd = 10;
     const handleSelect = (key: string, keyPath: string[]) => {
       console.log(key, keyPath);
+      dd = 1213;
     };
     const router = useRouter();
     const route = useRoute();
@@ -25,7 +27,8 @@ export default {
       timenow,
       menuList,
       activeIndex,
-      handleSelect
+      handleSelect,
+      dd
     };
   },
 };
@@ -39,7 +42,7 @@ export default {
           <el-header>Header</el-header>
           <el-footer
             ><h1>
-              炫彩刷新<font class="timeshow">{{timenow}}</font>
+              炫彩刷新<font class="timeshow">{{ dd }}</font>
             </h1>
           </el-footer>
         </el-container>

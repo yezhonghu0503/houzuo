@@ -16,7 +16,9 @@ let defaultParameter = ref("");
 function getToolSelect(index: any, event: any) {
   paintAndDigit[index].selectedtoolname = event.target.innerText;
 }
-
+function demo(value:any){
+  console.log(value)
+}
 export default {
   setup() {
     // let [paintColor,digital] = [["已下单发货", "未下单"],["厨房空间","卫浴空间","阳台空间"]];
@@ -25,6 +27,7 @@ export default {
       paintAndDigit,
       getToolSelect,
       defaultParameter,
+      demo
     };
   },
 };

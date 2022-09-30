@@ -28,7 +28,7 @@ export default {
         case "整装定制":
           router.push({
             path: "/interiorDecoration",
-          });
+          });  
       }
     }
     let menulist = [

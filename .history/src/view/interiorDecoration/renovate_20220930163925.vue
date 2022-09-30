@@ -20,7 +20,7 @@ function getToolSelect(index: any, event: any) {
 export default {
   setup() {
     // let [paintColor,digital] = [["已下单发货", "未下单"],["厨房空间","卫浴空间","阳台空间"]];
-    
+
     return {
       paintAndDigit,
       getToolSelect,
@@ -35,7 +35,7 @@ export default {
       <div class="tool-main">
         <div class="tool-name">测量面积</div>
         <div class="tool-parameter">
-          <input class="tool-input" maxlength="6" onkeyup="this.value=(this.value.match(/\d+(\.\d{0,2})?/)||[''])[0]"  type="text" value="00.0" />
+          <input class="tool-input" v-model="value" oninput="" type="text"  />
         </div>
       </div>
     </el-col>

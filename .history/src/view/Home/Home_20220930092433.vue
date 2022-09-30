@@ -12,24 +12,26 @@ export default {
     //路由跳转
     const router = useRouter();
     const route = useRoute();
+    let a = 1;
     function goInteriorDecoration(event: any) {
       let rawText = event.target.innerText;
       let menuName = rawText.substr(0, rawText.indexOf("\n"));
       console.log(menuName);
-      switch (menuName) {
-        case "炫彩刷新":
-          router.push({
-            path: "/interiorDecoration",
-          });
-        case "微装翻新":
-          router.push({
-            path: "/interiorDecoration",
-          });
-        case "整装定制":
-          router.push({
-            path: "/interiorDecoration",
-          });
-      }
+      a = 1213;
+      // switch (menuName) {
+      //   case "炫彩刷新":
+      //     router.push({
+      //       path: "/interiorDecoration",
+      //     });
+      //   case "微装翻新":
+      //     router.push({
+      //       path: "/interiorDecoration",
+      //     });
+      //   case "整装定制":
+      //     router.push({
+      //       path: "/interiorDecoration",
+      //     });  
+      // }
     }
     let menulist = [
       {
@@ -67,6 +69,7 @@ export default {
     return {
       menulist,
       goInteriorDecoration,
+      a
     };
   },
 };
@@ -78,7 +81,7 @@ export default {
       <el-col :span="16">
         <el-container class="head-tit">
           <el-header>Header</el-header>
-          <el-footer><h1>後作变新家</h1></el-footer>
+          <el-footer><h1>{{a}}</h1></el-footer>
         </el-container>
       </el-col>
       <el-col :span="8" align="middle">
