@@ -23,7 +23,7 @@ body {
   text-align: center;
   color: #2c3e50;
   overflow-x: hidden;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
   /* margin-top: 60px; */
 }
 </style>

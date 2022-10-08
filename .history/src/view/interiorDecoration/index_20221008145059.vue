@@ -106,7 +106,7 @@ export default {
       @select="handleSelect"
     >
       <el-menu-item
-        
+        @click="handleSelect"
         v-for="(item, index) in menuList"
         :index="index"
         >{{ item }}</el-menu-item

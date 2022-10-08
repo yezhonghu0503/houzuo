@@ -15,8 +15,8 @@ let titlename = ref("炫彩刷新")
 const menuList: string[] = ["炫彩刷新", "微装翻新", "全屋整装"];
 const activeIndex = ref(0);
 const handleSelect = (key: string, keyPath: string[]) => {
+  console.log(key);
   titlename.value = menuList[parseInt(key)];
-  console.log(titlename.value)
 };
 
 //格式化时间：年份-月份
@@ -106,7 +106,7 @@ export default {
       @select="handleSelect"
     >
       <el-menu-item
-        
+        @click="handleSelect"
         v-for="(item, index) in menuList"
         :index="index"
         >{{ item }}</el-menu-item

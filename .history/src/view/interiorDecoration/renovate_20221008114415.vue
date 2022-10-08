@@ -1,6 +1,7 @@
 <script lang="ts" >
+//import列表
 import { reactive, ref } from "vue";
-import appdata from "../../static/data.json";
+import appdata from "../../static/data.json"
 
 //数据初始化
 let comboList = reactive(appdata.comboList);
@@ -9,15 +10,15 @@ let paintAndDigit = reactive(appdata.paintAndDigit);
 //函数方法
 function getToolSelect(index: any, event: any) {
   paintAndDigit[index].selectedtoolname = event.target.innerText;
+  console.log(comboList[0].comboname);
 }
 
-//出口
+//setup
 export default {
   setup() {
     return {
       paintAndDigit,
-      getToolSelect,
-      comboList,
+      getToolSelect
     };
   },
 };
@@ -312,28 +313,28 @@ export default {
     </svg>
   </el-row>
   <el-row justify="center">
-    <el-col class="tiles" v-for="item in comboList" :span="24">
+    <el-col class="tiles" v-for="item in 3" :span="24">
       <div class="show-tiles">
         <el-row class="tiles-up">
           <el-col :span="12"
             ><h3 class="tiles-package-name">
-              {{ item.comboname }}
+              康居套餐
               <div class="tiles-package-introduce">
-                {{ item.combodescribe }}
+                陶瓷墙地砖300集成吊顶、灯具
               </div>
             </h3></el-col
           >
-          <el-col :span="12"
-            ><div class="tiles-package-price">
-              {{ item.grossprice }}
-            </div></el-col
-          >
+          <el-col :span="12"><div class="tiles-package-price">123</div></el-col>
         </el-row>
         <el-row class="tiles-down" justify="end">
-          <el-col v-for="initems in item.pricelist" :span="6"
-            >{{ initems.pricename }}
-            <div>{{ initems.price }}</div></el-col
+          <el-col :span="6"
+            >拆护费用
+            <div>{{ demo }}</div></el-col
           >
+          <el-col :span="6">
+            翻新费用
+            <div>3369.00</div>
+          </el-col>
         </el-row>
       </div>
     </el-col>
@@ -422,7 +423,6 @@ export default {
   width: 100px;
   font-size: 10px;
   font-weight: 400;
-  margin-top:5px;
 }
 .tiles-down {
   margin-top: 10px;

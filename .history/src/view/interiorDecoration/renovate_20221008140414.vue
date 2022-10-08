@@ -422,7 +422,7 @@ export default {
   width: 100px;
   font-size: 10px;
   font-weight: 400;
-  margin-top:5px;
+  color: rgba(42, 130, 228, 1);
 }
 .tiles-down {
   margin-top: 10px;

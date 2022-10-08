@@ -331,8 +331,8 @@ export default {
         </el-row>
         <el-row class="tiles-down" justify="end">
           <el-col v-for="initems in item.pricelist" :span="6"
-            >{{ initems.pricename }}
-            <div>{{ initems.price }}</div></el-col
+            >{{initems.pricename}}
+            <div>{{initems.price}}</div></el-col
           >
         </el-row>
       </div>
@@ -422,7 +422,6 @@ export default {
   width: 100px;
   font-size: 10px;
   font-weight: 400;
-  margin-top:5px;
 }
 .tiles-down {
   margin-top: 10px;

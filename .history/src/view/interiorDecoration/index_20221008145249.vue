@@ -103,10 +103,9 @@ export default {
       :default-active="activeIndex"
       class="el-menu-demo"
       mode="horizontal"
-      @select="handleSelect"
     >
       <el-menu-item
-        
+        @click="handleSelect"
         v-for="(item, index) in menuList"
         :index="index"
         >{{ item }}</el-menu-item

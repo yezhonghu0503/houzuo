@@ -422,7 +422,6 @@ export default {
   width: 100px;
   font-size: 10px;
   font-weight: 400;
-  margin-top:5px;
 }
 .tiles-down {
   margin-top: 10px;

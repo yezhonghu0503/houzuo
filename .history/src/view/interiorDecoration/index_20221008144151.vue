@@ -7,33 +7,25 @@ import {
   onBeforeRouteUpdate,
 } from "vue-router";
 import Renovate from "./renovate.vue";
-
-//初始化变量
-let titlename = ref("炫彩刷新")
-
-//菜单
-const menuList: string[] = ["炫彩刷新", "微装翻新", "全屋整装"];
-const activeIndex = ref(0);
-const handleSelect = (key: string, keyPath: string[]) => {
-  titlename.value = menuList[parseInt(key)];
-  console.log(titlename.value)
-};
-
-//格式化时间：年份-月份
-let timenow: string = new Date().toJSON().substring(0, 7);
 export default {
   components: {
     Renovate,
   },
   setup() {
+    //菜单
+    const menuList: string[] = ["炫彩刷新", "微装翻新", "全屋整装"];
+    const activeIndex = ref(0);
+    const handleSelect = (key: string, keyPath: string[]) => {
+      console.log(key);
+    };
     const router = useRouter();
     const route = useRoute();
+    let timenow: string = new Date().toJSON().substring(0, 7);
     return {
       timenow,
       menuList,
       activeIndex,
-      handleSelect,
-      titlename
+      handleSelect
     };
   },
 };
@@ -47,7 +39,7 @@ export default {
           <el-header>Header</el-header>
           <el-footer
             ><h1>
-              {{titlename}}<font class="timeshow">{{ timenow }}</font>
+              炫彩刷新<font class="timeshow">{{timenow}}</font>
             </h1>
           </el-footer>
         </el-container>
@@ -106,7 +98,7 @@ export default {
       @select="handleSelect"
     >
       <el-menu-item
-        
+        @click="handleSelect"
         v-for="(item, index) in menuList"
         :index="index"
         >{{ item }}</el-menu-item

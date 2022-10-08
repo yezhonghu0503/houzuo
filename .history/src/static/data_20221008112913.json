@@ -1,0 +1,49 @@
+{
+    "comboList": [
+        {
+            "comboname": "康居套餐",
+            "combodescribe": "陶瓷墙地砖300集成吊顶、灯具",
+            "grossprice": "000",
+            "pricelist": [
+                {
+                    "pricename": "拆护费用",
+                    "price": "0.0"
+                },
+                {
+                    "pricename": "拆护费用",
+                    "price": "0.0"
+                }
+            ]
+        },
+        {
+            "comboname": "康居套餐",
+            "combodescribe": "陶瓷墙地砖300集成吊顶、灯具",
+            "grossprice": "000",
+            "pricelist": [
+                {
+                    "pricename": "拆护费用",
+                    "price": "0.0"
+                },
+                {
+                    "pricename": "拆护费用",
+                    "price": "0.0"
+                }
+            ]
+        },
+        {
+            "comboname": "康居套餐",
+            "combodescribe": "陶瓷墙地砖300集成吊顶、灯具",
+            "grossprice": "000",
+            "pricelist": [
+                {
+                    "pricename": "拆护费用",
+                    "price": "0.0"
+                },
+                {
+                    "pricename": "拆护费用",
+                    "price": "0.0"
+                }
+            ]
+        }
+    ]
+}
