@@ -1,5 +1,5 @@
 <script lang="ts">
-import { ref } from "vue";
+import { ref,onMounted } from "vue";
 import {
   useRouter,
   useRoute,
@@ -9,7 +9,7 @@ import {
 import Renovate from "./renovate.vue";
 
 //初始化变量
-let titlename = ref("炫彩刷新")
+let titlename = ref("aaa")
 
 //菜单
 const menuList: string[] = ["炫彩刷新", "微装翻新", "全屋整装"];
@@ -28,6 +28,11 @@ export default {
   setup() {
     const router = useRouter();
     const route = useRoute();
+    let { menuid }:any = route.query;
+    onMounted(() => {
+      activeIndex.value = parseInt(menuid)
+      titlename.value = menuList[parseInt(menuid)]
+    });
     return {
       timenow,
       menuList,

@@ -20,14 +20,19 @@ export default {
         case "炫彩刷新":
           router.push({
             path: "/interiorDecoration",
+            query: { menuid: 0 },
           });
+          break;
         case "微装翻新":
           router.push({
             path: "/interiorDecoration",
+            query: { menuid: 1 },
           });
+          break;
         case "整装定制":
           router.push({
             path: "/interiorDecoration",
+            query: { menuid: 2 },
           });
       }
     }

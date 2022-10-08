@@ -1,6 +1,7 @@
 <script lang="ts" >
-import { reactive, ref } from "vue";
+import { onMounted, reactive, ref } from "vue";
 import appdata from "../../static/data.json";
+import { useRoute } from "vue-router";
 
 //数据初始化
 let comboList = reactive(appdata.comboList);
@@ -422,7 +423,7 @@ export default {
   width: 100px;
   font-size: 10px;
   font-weight: 400;
-  margin-top:5px;
+  margin-top: 5px;
 }
 .tiles-down {
   margin-top: 10px;
