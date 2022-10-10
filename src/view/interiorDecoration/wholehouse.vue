@@ -5,7 +5,7 @@ import { useRoute } from "vue-router";
 
 //数据初始化
 const checkList = ref(["selected and disabled", "Option A"]);
-let comboList = reactive(appdata.refurbishComboList);
+let comboList = reactive(appdata.wholehouseComboList);
 let wholehouseStairwell = reactive(appdata.wholehouseStairwell);
 
 //函数方法
@@ -462,31 +462,66 @@ export default {
   </el-row>
 
   <el-row justify="center">
-    <el-col class="tiles" v-for="item in comboList" :span="24">
+    <el-col class="tiles" :span="24">
       <div class="show-tiles">
-        <el-row class="tiles-up">
-          <el-col :span="12"
-            ><h3 class="tiles-package-name">
-              {{ item.comboname }}
-              <div
-                v-for="describeitem in item.combodescribe"
-                class="tiles-package-introduce"
-              >
-                {{ describeitem }}
-              </div>
-            </h3></el-col
-          >
-          <el-col :span="12"
-            ><div class="tiles-package-price">
-              {{ item.grossprice }}
-            </div></el-col
-          >
+        <el-row class="comboname" justify="center">
+          <el-col class="comboname-name" :span="11">{{
+            comboList.standardCombo.comboname
+          }}</el-col>
+          <el-col class="comboname-grossprice" :span="11">{{
+            comboList.standardCombo.grossprice
+          }}</el-col>
         </el-row>
-        <el-row class="tiles-down" justify="end">
-          <el-col v-for="initems in item.pricelist" :span="6"
-            >{{ initems.pricename }}
-            <div>{{ initems.price }}</div></el-col
-          >
+        <el-row
+          class="costlist"
+          v-for="item in comboList.standardCombo.costlist"
+          justify="center"
+        >
+          <el-col class="costlist-name" :span="11">{{ item.costname }}</el-col>
+          <el-col class="costlist-cost" :span="11">{{ item.cost }}</el-col>
+        </el-row>
+      </div>
+    </el-col>
+  </el-row>
+  <el-row justify="center">
+    <el-col class="individuation" :span="24">
+      <div class="individuation-tiles">
+        <el-row class="comboname" justify="center">
+          <el-col class="comboname-name" :span="11">{{
+            comboList.individuationCombo.comboname
+          }}</el-col>
+          <el-col class="comboname-grossprice" :span="11">{{
+            comboList.individuationCombo.grossprice
+          }}</el-col>
+        </el-row>
+       <div v-for="item in comboList.individuationCombo.costlist">
+        <el-row justify="center">
+          <el-col class="costlist-title" :span="22">{{
+            item.listname
+          }}</el-col>
+        </el-row>
+        <el-row
+          class="costlist"
+          v-for="items in item.constructionList"
+          justify="center"
+        >
+          <el-col class="costlist-name" :span="16">{{ items.costname }}</el-col>
+          <el-col class="costlist-cost" :span="6">{{ items.cost }}</el-col>
+        </el-row>
+       </div>
+      </div>
+    </el-col>
+  </el-row>
+  <el-row justify="center">
+    <el-col class="grossprice" :span="24">
+      <div class="grossprice-tiles">
+        <el-row class="comboname" justify="center">
+          <el-col class="comboname-name" :span="11">
+            全屋预估总价
+          </el-col>
+          <el-col class="comboname-grossprice" :span="11">{{
+            comboList.standardCombo.grossprice
+          }}</el-col>
         </el-row>
       </div>
     </el-col>
@@ -498,6 +533,7 @@ export default {
   height: 85px;
   margin-top: 20px;
   padding: 0 15px;
+  margin-bottom: 10px;
 }
 .tool-main {
   background: white;
@@ -600,17 +636,39 @@ export default {
   display: flex;
   justify-content: space-between;
 }
-.instruction-list svg{
-  margin:0 auto;
+.instruction-list svg {
+  margin: 0 auto;
 }
 
 .tiles {
-  height: 150px;
+  height: 110px;
   margin-top: 15px;
+}
+.individuation {
+  height: 100px auto;
+  margin-top: 15px;
+}
+.grossprice {
+  height: 70px;
+  line-height: 50px;
+  margin-top: 15px;
+}
+.grossprice-tiles{
+  width: 92vw;
+  height: 70px;
+  margin: 0 auto;
+  background: white;
+}
+.individuation-tiles {
+  width: 92vw;
+  height: 100px auto;
+  padding-bottom: 10px;
+  margin: 0 auto;
+  background: white;
 }
 .show-tiles {
   width: 92vw;
-  height: 150px;
+  height: 110px;
   margin: 0 auto;
   background: white;
 }
@@ -643,5 +701,31 @@ export default {
 }
 .parameter-list :deep(.el-checkbox-group) {
   font-size: 8px;
+}
+.comboname {
+  font-size: 18px;
+  padding-top: 10px;
+  font-weight: 600;
+}
+.comboname-name,
+.costlist-name {
+  text-align: start;
+}
+.comboname-grossprice {
+  text-align: end;
+  color: rgba(42, 130, 228, 1);
+}
+.costlist {
+  font-size: 10px;
+  margin-top: 10px;
+}
+.costlist-cost {
+  text-align: end;
+}
+.costlist-title {
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: start;
+  font-weight: 600;
 }
 </style>

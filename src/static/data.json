@@ -68,7 +68,10 @@
     "refurbishComboList": [
         {
             "comboname": "抗甲醛五合一",
-            "combodescribe": ["N立邦","Dulux多乐士"],
+            "combodescribe": [
+                "N立邦",
+                "Dulux多乐士"
+            ],
             "grossprice": "000",
             "pricelist": [
                 {
@@ -87,7 +90,10 @@
         },
         {
             "comboname": "抗甲醛五合一",
-            "combodescribe": ["N立邦","Dulux多乐士"],
+            "combodescribe": [
+                "N立邦",
+                "Dulux多乐士"
+            ],
             "grossprice": "000",
             "pricelist": [
                 {
@@ -106,7 +112,10 @@
         },
         {
             "comboname": "抗甲醛五合一",
-            "combodescribe": ["N立邦","Dulux多乐士"],
+            "combodescribe": [
+                "N立邦",
+                "Dulux多乐士"
+            ],
             "grossprice": "000",
             "pricelist": [
                 {
@@ -135,7 +144,79 @@
             ]
         }
     ],
-    "wholehouseStairwell":[
+    "wholehouseComboList": {
+        "standardCombo": {
+            "comboname": "标准化模块报价单",
+            "grossprice": "209900.00",
+            "costlist": [
+                {
+                    "costname": "新装套餐费用",
+                    "cost": "159900.00"
+                },
+                {
+                    "costname": "老房基础改造费用",
+                    "cost": "50000.00"
+                }
+            ]
+        },
+        "individuationCombo": {
+            "comboname": "个性化模块报价单",
+            "grossprice": "35500.00",
+            "costlist": [
+                {
+                    "listname": "个性化施工部分",
+                    "constructionList": [
+                        {
+                            "costname": "墙顶地个性化",
+                            "cost": "2200.00"
+                        },
+                        {
+                            "costname": "门窗个性化",
+                            "cost": "3260.00"
+                        },
+                        {
+                            "costname": "套餐扩容个性化",
+                            "cost": "2000.00"
+                        },
+                        {
+                            "costname": "设备配套",
+                            "cost": "1500.00"
+                        }
+                    ]
+                },
+                {
+                    "listname": "阳台厨卫设备部分",
+                    "constructionList": [
+                        {
+                            "costname": "橱柜套餐（含水槽龙头）",
+                            "cost": "2200.00"
+                        },
+                        {
+                            "costname": "烟机灶具套餐",
+                            "cost": "3260.00"
+                        },
+                        {
+                            "costname": "卫浴洁具套餐（马桶、卫浴柜、淋浴房、淋浴柱）",
+                            "cost": "2000.00"
+                        },
+                        {
+                            "costname": "阳台伴侣（阳台柜、台面、上下水系统）",
+                            "cost": "1500.00"
+                        },
+                        {
+                            "costname": "3.44%税金（标准化部分+个性化施工部分）",
+                            "cost": "1500.00"
+                        },
+                        {
+                            "costname": "6%管理费",
+                            "cost": "1500.00"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "wholehouseStairwell": [
         {
             "toolname": "上楼方式",
             "selectedtoolname": "步梯",
