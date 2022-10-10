@@ -1,0 +1,138 @@
+{
+    "renovateComboList": [
+        {
+            "comboname": "康居套餐",
+            "combodescribe": "陶瓷墙地砖300集成吊顶、灯具",
+            "grossprice": "000",
+            "pricelist": [
+                {
+                    "pricename": "拆护费用",
+                    "price": "0.0"
+                },
+                {
+                    "pricename": "拆护费用",
+                    "price": "0.0"
+                }
+            ]
+        },
+        {
+            "comboname": "乐居套餐",
+            "combodescribe": "玻化砖、集成吊顶集成灯具、浴霸、凉霸",
+            "grossprice": "000",
+            "pricelist": [
+                {
+                    "pricename": "拆护费用",
+                    "price": "0.0"
+                },
+                {
+                    "pricename": "拆护费用",
+                    "price": "0.0"
+                }
+            ]
+        },
+        {
+            "comboname": "美居套餐",
+            "combodescribe": "玻化砖、集成吊顶集成设备",
+            "grossprice": "000",
+            "pricelist": [
+                {
+                    "pricename": "拆护费用",
+                    "price": "0.0"
+                },
+                {
+                    "pricename": "拆护费用",
+                    "price": "0.0"
+                }
+            ]
+        }
+    ],
+    "paintAndDigit": [
+        {
+            "toolname": "微装空间",
+            "selectedtoolname": "厨房空间",
+            "selectlist": [
+                "厨房空间",
+                "卫浴空间",
+                "阳台空间"
+            ]
+        },
+        {
+            "toolname": "配套装备",
+            "selectedtoolname": "已下单发货",
+            "selectlist": [
+                "已下单发货",
+                "未下单"
+            ]
+        }
+    ],
+    "refurbishComboList": [
+        {
+            "comboname": "抗甲醛五合一",
+            "combodescribe": "N立邦\nDulux多乐士",
+            "grossprice": "000",
+            "pricelist": [
+                {
+                    "pricename": "拆护费用",
+                    "price": "0.0"
+                },
+                {
+                    "pricename": "保护费用",
+                    "price": "0.0"
+                },
+                {
+                    "pricename": "刷新费用",
+                    "price": "0.0"
+                }
+            ]
+        },
+        {
+            "comboname": "抗甲醛五合一",
+            "combodescribe": "N立邦\n\rDulux多乐士",
+            "grossprice": "000",
+            "pricelist": [
+                {
+                    "pricename": "拆护费用",
+                    "price": "0.0"
+                },
+                {
+                    "pricename": "保护费用",
+                    "price": "0.0"
+                },
+                {
+                    "pricename": "刷新费用",
+                    "price": "0.0"
+                }
+            ]
+        },
+        {
+            "comboname": "抗甲醛五合一",
+            "combodescribe": "N立邦\nDulux多乐士",
+            "grossprice": "000",
+            "pricelist": [
+                {
+                    "pricename": "拆护费用",
+                    "price": "0.0"
+                },
+                {
+                    "pricename": "保护费用",
+                    "price": "0.0"
+                },
+                {
+                    "pricename": "刷新费用",
+                    "price": "0.0"
+                }
+            ]
+        }
+    ],
+    "refurbishColor": [
+        {
+            "toolname": "微装空间",
+            "selectedtoolname": "厨房空间",
+            "selectlist": [
+                "厨房空间",
+                "卫浴空间",
+                "阳台空间"
+            ]
+        }
+    ]
+}
