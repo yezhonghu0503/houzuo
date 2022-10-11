@@ -1,5 +1,5 @@
 <script lang="ts">
-import { ref,onMounted } from "vue";
+import { ref, onMounted, onUpdated } from "vue";
 import {
   useRouter,
   useRoute,
@@ -7,17 +7,21 @@ import {
   onBeforeRouteUpdate,
 } from "vue-router";
 import Renovate from "./renovate.vue";
-import Refurbish from "./refurbish.vue"
-import Wholehouse from "./wholehouse.vue"
+import Refurbish from "./refurbish.vue";
+import Wholehouse from "./wholehouse.vue";
 
 //初始化变量
-let titlename = ref("aaa")
+let titlename = ref("aaa");
+let componentshow = [false,false,false]
 
 //菜单
 const menuList: string[] = ["炫彩刷新", "微装翻新", "全屋整装"];
 const activeIndex = ref(0);
 const handleSelect = (key: string, keyPath: string[]) => {
   titlename.value = menuList[parseInt(key)];
+  componentshow = [false,false,false];
+  console.log(parseInt(key))
+  componentshow[parseInt(key)] = true
 };
 
 //方法区
@@ -28,20 +32,21 @@ export default {
   components: {
     Renovate,
     Refurbish,
-    Wholehouse
+    Wholehouse,
   },
   setup() {
     const router = useRouter();
     const route = useRoute();
-    let { menuid }:any = route.query;
+    let { menuid }: any = route.query;
     onMounted(() => {
-      activeIndex.value = parseInt(menuid)
-      titlename.value = menuList[parseInt(menuid)]
+      activeIndex.value = parseInt(menuid);
+      titlename.value = menuList[parseInt(menuid)];
+      componentshow[activeIndex.value] = true;
     });
-    function gobcakHome(){
+    function gobcakHome() {
       router.push({
-        path:"/"
-      })
+        path: "/",
+      });
     }
     return {
       timenow,
@@ -49,7 +54,8 @@ export default {
       activeIndex,
       handleSelect,
       titlename,
-      gobcakHome
+      gobcakHome,
+      componentshow
     };
   },
 };
@@ -60,13 +66,13 @@ export default {
     <el-row class="head-row" :gutter="2">
       <el-col :span="16">
         <el-container class="head-tit">
-          <el-header @click="gobcakHome" class="goback" >
+          <el-header @click="gobcakHome" class="goback">
             <el-icon :size="25"><Back /></el-icon>
             <div>houzuo</div>
           </el-header>
           <el-footer
             ><h1>
-              {{titlename}}<font class="timeshow">{{ timenow }}</font>
+              {{ titlename }}<font class="timeshow">{{ timenow }}</font>
             </h1>
           </el-footer>
         </el-container>
@@ -124,17 +130,14 @@ export default {
       mode="horizontal"
       @select="handleSelect"
     >
-      <el-menu-item
-        
-        v-for="(item, index) in menuList"
-        :index="index"
-        >{{ item }}</el-menu-item
-      >
+      <el-menu-item v-for="(item, index) in menuList" :index="index">{{
+        item
+      }}</el-menu-item>
     </el-menu>
     <div class="h-6" />
-    <Renovate v-if="false" />
-    <Refurbish v-if="false" />
-    <Wholehouse />
+    <Renovate v-if="componentshow[0]" />
+    <Refurbish v-if="componentshow[1]" />
+    <Wholehouse v-if="componentshow[2]" />
   </div>
 </template>
     
@@ -183,11 +186,33 @@ export default {
   background: #f6f6f6;
   height: 40px;
 }
-.goback{
-  margin-top:10px;
-  font-size:20px;
-  display:flex;
+.goback {
+  margin-top: 10px;
+  font-size: 20px;
+  display: flex;
   align-items: center;
 }
+.code-enter-active,
+.code-leave-active {
+  transition: opacity 1s ease;
+}
 
+/* 不仅可以使用过渡，还可以使用animation动画效果 */
+.code-enter-active {
+  animation: bounce 1s ease;
+}
+.code-leave-active {
+  animation: bounce 1s ease reverse;
+}
+@keyframes bounce {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 </style>

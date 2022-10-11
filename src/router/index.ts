@@ -40,7 +40,7 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach((to, from) => {
     // console.log(to, from)
-    console.log('afterEach')
+    // console.log('afterEach')
 })
 
 export default router;
