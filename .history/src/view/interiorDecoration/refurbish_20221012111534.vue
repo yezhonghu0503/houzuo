@@ -4,43 +4,41 @@ import appdata from "../../static/data.json";
 import { useRoute } from "vue-router";
 
 //数据初始化
-let comboList = reactive(appdata.renovateComboList);
-let paintAndDigit = reactive(appdata.paintAndDigit);
-let renovateInput = ref(["测量面积", "拆除面积"])
+let comboList = reactive(appdata.refurbishComboList);
+let refurbishColor = reactive(appdata.refurbishColor);
 
 //函数方法
 function getToolSelect(index: any, event: any) {
-  paintAndDigit[index].selectedtoolname = event.target.innerText;
+  refurbishColor[index].selectedtoolname = event.target.innerText;
 }
 
 //出口
 export default {
   setup() {
     return {
-      paintAndDigit,
+      refurbishColor,
       getToolSelect,
       comboList,
-      renovateInput
     };
   },
 };
 </script>
 <template>
   <el-row :gutter="5" class="tool-menu" justify="center">
-    <el-col v-for="item in renovateInput" :span="6">
+    <el-col v-for="item in 2" :span="6">
       <div class="tool-main">
-        <div class="tool-name">{{item}}</div>
-        <div class="ren-tool-parameter">
+        <div class="tool-name">房间面积</div>
+        <div class="ref-tool-parameter">
           <input class="tool-input" maxlength="6" onkeyup="this.value=(this.value.match(/\d+(\.\d{0,2})?/)||[''])[0]"
             type="text" value="00.0" />
         </div>
       </div>
     </el-col>
-    <el-col v-for="(item, index) in paintAndDigit" :span="6">
+    <el-col v-for="(item, index) in refurbishColor" :span="6">
       <div class="tool-main">
         <div class="tool-name">{{ item.toolname }}</div>
-        <div class="ren-tool-parameter">
-          <el-dropdown class="ren-tool-dropdown">
+        <div class="ref-tool-parameter">
+          <el-dropdown class="ref-tool-dropdown">
             <span class="el-dropdown-link">
               <!-- {{ defaultParameter ? defaultParameter : item.selectlist[0] }} -->
               {{ item.selectedtoolname }}
@@ -58,8 +56,17 @@ export default {
         </div>
       </div>
     </el-col>
+    <el-col v-for="item in 1" :span="6">
+      <div class="tool-main">
+        <div class="tool-name">彩涂墙面</div>
+        <div class="ref-tool-parameter">
+          <input class="tool-input" maxlength="2" onkeyup="this.value=(this.value.match(/\d+(\.\d{0,2})?/)||[''])[0]"
+            type="text" value="0" />
+        </div>
+      </div>
+    </el-col>
   </el-row>
-  <el-row class="ren-instruction-list">
+  <el-row class="ref-instruction-list">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25"
       viewBox="0 0 30 30" fill="none">
       <defs>
@@ -209,24 +216,24 @@ export default {
     </svg>
   </el-row>
   <el-row justify="center">
-    <el-col class="ren-tiles" v-for="item in comboList" :span="24">
-      <div class="ren-show-tiles">
-        <el-row class="ren-tiles-up">
+    <el-col class="ref-tiles" v-for="item in comboList" :span="24">
+      <div class="ref-show-tiles">
+        <el-row class="ref-tiles-up">
           <el-col :span="12">
-            <h3 class="ren-tiles-package-name">
+            <h3 class="ref-tiles-package-name">
               {{ item.comboname }}
-              <div class="ren-tiles-package-introduce">
-                {{ item.combodescribe }}
+              <div v-for="describeitem in item.combodescribe" class="tiles-package-introduce">
+                {{ describeitem }}
               </div>
             </h3>
           </el-col>
           <el-col :span="12">
-            <div class="ren-tiles-package-price">
+            <div class="ref-tiles-package-price">
               {{ item.grossprice }}
             </div>
           </el-col>
         </el-row>
-        <el-row class="ren-tiles-down" justify="end">
+        <el-row class="ref-tiles-down" justify="end">
           <el-col v-for="initems in item.pricelist" :span="6">{{ initems.pricename }}
             <div>{{ initems.price }}</div>
           </el-col>
@@ -254,7 +261,7 @@ export default {
   border-bottom: 5px solid #f6f6f6;
 }
 
-.ren-tool-parameter {
+.ref-tool-parameter {
   height: 55px;
   line-height: 55px;
   background: white;
@@ -277,7 +284,7 @@ export default {
   align-items: center;
 }
 
-.ren-tool-dropdown {
+.ref-tool-dropdown {
   height: 55px;
   line-height: 55px;
   font-size: 10px;
@@ -285,40 +292,40 @@ export default {
   color: rgba(212, 48, 48, 1);
 }
 
-.ren-instruction-list {
+.ref-instruction-list {
   margin-top: 10px;
   width: 100%;
   display: flex;
   justify-content: end;
 }
 
-.ren-instruction-list svg {
+.ref-instruction-list svg {
   margin-right: 15px;
 }
 
-.ren-tiles {
+.ref-tiles {
   height: 150px;
   margin-top: 15px;
 }
 
-.ren-show-tiles {
+.ref-show-tiles {
   width: 92vw;
   height: 150px;
   margin: 0 auto;
   background: white;
 }
 
-.ren-tiles-up {
+.ref-tiles-up {
   height: 100px;
 }
 
-.ren-tiles-package-name {
+.ref-tiles-package-name {
   margin-left: 20px;
   text-align: left;
   margin-top: 10px;
 }
 
-.ren-tiles-package-price {
+.ref-tiles-package-price {
   height: 100px;
   font-size: 20px;
   font-weight: 700;
@@ -328,14 +335,14 @@ export default {
   text-align: right;
 }
 
-.ren-tiles-package-introduce {
+.tiles-package-introduce {
   width: 100px;
   font-size: 10px;
   font-weight: 400;
   margin-top: 5px;
 }
 
-.ren-tiles-down {
+.ref-tiles-down {
   margin-top: 10px;
   font-size: 10px;
 }

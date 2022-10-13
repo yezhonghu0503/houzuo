@@ -18,9 +18,9 @@ const menuList: string[] = ["炫彩刷新", "微装翻新", "全屋整装"];
 const activeIndex = ref(0);
 const handleSelect = (key: string, keyPath: string[]) => {
   titlename.value = menuList[parseInt(key)];
-  componentshow.value = [false,false,false];
+  componentshow = [false,false,false];
   console.log(parseInt(key))
-  componentshow.value[parseInt(key)] = true
+  componentshow[parseInt(key)] = true
 };
 
 //方法区
@@ -40,9 +40,7 @@ export default {
     onMounted(() => {
       activeIndex.value = parseInt(menuid);
       titlename.value = menuList[parseInt(menuid)];
-      componentshow.value = [false,false,false];
-      componentshow.value[activeIndex.value] = true;
-      console.log(componentshow.value)
+      componentshow[activeIndex.value] = true;
     });
     function gobcakHome() {
       router.push({
@@ -136,8 +134,8 @@ export default {
       }}</el-menu-item>
     </el-menu>
     <div class="h-6" />
-    <Refurbish v-if="componentshow[0]" />
-    <Renovate v-if="componentshow[1]" />
+    <Renovate v-if="componentshow[0]" />
+    <Refurbish v-if="componentshow[1]" />
     <Wholehouse v-if="componentshow[2]" />
   </div>
 </template>

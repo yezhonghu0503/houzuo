@@ -7,7 +7,6 @@ import { useRoute } from "vue-router";
 const checkList = ref(["selected and disabled", "Option A"]);
 let comboList = reactive(appdata.wholehouseComboList);
 let wholehouseStairwell = reactive(appdata.wholehouseStairwell);
-let wholehouseState = reactive(appdata.wholehouseState)
 
 //函数方法
 function getToolSelect(index: any, event: any) {
@@ -19,7 +18,6 @@ export default {
   setup() {
     return {
       wholehouseStairwell,
-      wholehouseState,
       getToolSelect,
       comboList,
       checkList,
@@ -169,7 +167,7 @@ export default {
         </div>
       </div>
     </el-col>
-    <el-col v-for="(item, index) in wholehouseState" :span="8">
+    <el-col v-for="(item, index) in wholehouseStairwell" :span="8">
       <div class="tool-main">
         <div class="tool-name">{{ item.toolname }}</div>
         <div class="tool-stairwell-down">

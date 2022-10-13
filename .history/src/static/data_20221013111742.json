@@ -221,18 +221,9 @@
             "toolname": "上楼方式",
             "selectedtoolname": "步梯",
             "selectlist": [
-                "步梯",
-                "电梯"
-            ]
-        }
-    ],
-    "wholehouseState":[
-        {
-            "toolname": "房屋状态",
-            "selectedtoolname": "旧装待拆",
-            "selectlist": [
-                "步梯",
-                "电梯"
+                "厨房空间",
+                "卫浴空间",
+                "阳台空间"
             ]
         }
     ]
