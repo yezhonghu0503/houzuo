@@ -60,6 +60,16 @@ export default {
       </el-col>
     </el-row>
   </div>
+  <div id="main">
+    <el-row justify="center">
+      <el-col class="main-tips" :span="22">
+        <div class="tips-font">居家养老改造服务<div>防滑防护 照明</div></div>
+      </el-col>
+    </el-row>
+    <el-row class="main-down" justify="center">
+      <el-col class="main-menu" v-for="item in 4" :span="10">212</el-col>
+    </el-row>
+  </div>
 </template>
     
     <style>
@@ -90,5 +100,30 @@ export default {
   color: rgba(56, 56, 56, 1);
   text-align: left;
   /*vertical-align: top;*/
+}
+.main-tips {
+  height: 150px;
+  background: yellow;
+  height: 190px;
+  opacity: 1;
+  border-radius: 5px;
+  background: rgba(208, 192, 193, 1);
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: start;
+  text-align: start;
+}
+.tips-font{
+  font-size: 18px;
+  margin: 110px 15px;
+  font-weight: 400;
+}
+.main-menu{
+  height: 250px;
+  background: white;
+  margin-top: 15px;
+}
+.main-down{
+  background: violet;
 }
 </style>
