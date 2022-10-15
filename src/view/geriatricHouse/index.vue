@@ -67,7 +67,11 @@ export default {
       </el-col>
     </el-row>
     <el-row class="main-down" justify="center">
-      <el-col class="main-menu" v-for="item in 4" :span="10">212</el-col>
+      <el-col class="main-menu" v-for="item in 4" :span="11">
+        <div class="menu-item">
+
+        </div>
+      </el-col>
     </el-row>
   </div>
 </template>
@@ -119,11 +123,17 @@ export default {
   font-weight: 400;
 }
 .main-menu{
+  display: flex;
+  justify-content: start;
+}
+.menu-item{
+  width: 180px;
   height: 250px;
   background: white;
   margin-top: 15px;
+  border-radius: 5px;
 }
-.main-down{
+/* .main-down{
   background: violet;
-}
+} */
 </style>
