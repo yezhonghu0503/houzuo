@@ -136,11 +136,11 @@
     "refurbishColor": [
         {
             "toolname": "刷新颜色",
-            "selectedtoolname": "厨房空间",
+            "selectedtoolname": "白顶白墙",
             "selectlist": [
-                "厨房空间",
-                "卫浴空间",
-                "阳台空间"
+                "白顶白墙",
+                "白顶彩墙",
+                "白顶单彩墙"
             ]
         }
     ],
@@ -226,7 +226,7 @@
             ]
         }
     ],
-    "wholehouseState":[
+    "wholehouseState": [
         {
             "toolname": "房屋状态",
             "selectedtoolname": "旧装待拆",

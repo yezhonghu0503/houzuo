@@ -39,6 +39,11 @@ export default {
           router.push({
             path: "/geriatricHouse"
           });
+          break;
+        case "定制星":
+          router.push({
+            path:'/customStar'
+          })
       }
     }
     let menulist = [

@@ -1,20 +1,30 @@
 <script lang="ts">
 import { ref, onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
+
 let menuList = [
   {
-    logoUrl: "src/static/geriatricImg/yushi.jpg",
+    title: "定制家具专业售后服务商",
+    subtitle: "测量    设计   配送    安装",
+    color: "background:#BABF21",
   },
   {
-    logoUrl: "src/static/geriatricImg/jingzi.jpg",
+    title: "一站式售后服务",
+    subtitle: "测量    设计   配送    安装",
+    color: "background:#6BCFE8",
   },
   {
-    logoUrl: "src/static/geriatricImg/tijian.jpg",
+    title: "合适的才是高效的",
+    subtitle: "测量    设计   配送    安装",
+    color: "background:#F279A6",
   },
   {
-    logoUrl: "src/static/geriatricImg/chufang.jpg",
+    title: "定制家具落地服务",
+    subtitle: "测量    设计   配送    安装",
+    color: "background:#BFA380",
   },
 ];
+
 export default {
   components: {},
   setup() {
@@ -26,8 +36,8 @@ export default {
     };
     onMounted(() => {});
     return {
-      menuList,
       gobcakHome,
+      menuList,
     };
   },
 };
@@ -42,7 +52,7 @@ export default {
             <el-icon :size="25"><Back /></el-icon>
             <div>houzuo</div>
           </el-header>
-          <el-footer><h1>适老化改造</h1> </el-footer>
+          <el-footer><h1>定制星</h1> </el-footer>
         </el-container>
       </el-col>
       <el-col :span="8" align="middle">
@@ -88,17 +98,12 @@ export default {
   </div>
   <div id="main">
     <el-row justify="center">
-      <el-col class="main-tips" :span="22">
-        <div class="tips-font">
-          居家养老改造服务
-          <div>防滑防护 照明</div>
-        </div>
-      </el-col>
-    </el-row>
-    <el-row gutter="10" class="main-down" justify="center">
-      <el-col class="main-menu" v-for="item in menuList" :span="11">
-        <div class="menu-item">
-          <img class="item-menu-logo" :src="item.logoUrl" alt="" />
+      <el-col class="col-menu" v-for="item in menuList" :span="22">
+        <div class="menu-item" :style="item.color">
+          <div class="item-title">
+            {{ item.title }}
+            <div class="item-subtitle">{{ item.subtitle }}</div>
+          </div>
         </div>
       </el-col>
     </el-row>
@@ -116,6 +121,7 @@ export default {
   top: 0px;
   width: 100vw;
   height: 143px;
+
   /* background: turquoise; */
 }
 .head-row {
@@ -152,28 +158,24 @@ export default {
   display: flex;
   align-items: center;
 }
-.tips-font {
-  font-size: 18px;
-  margin: 110px 15px;
-  font-weight: 400;
-}
-.main-menu {
-  display: flex;
-  justify-content: center;
-  /* background: turquoise; */
-  margin-bottom: 20px;
+.col-menu {
+  margin-top: 10px;
 }
 .menu-item {
-  width: 100%;
-  height: 250px;
-  background: white;
-  border-radius: 5px;
+  height: 160px;
+  /* background: wheat; */
+  border-radius: 15px;
+  text-align: start;
 }
-.main-down {
-  margin-top: 15px;
+.item-title {
+  font-size: 20px;
+  padding: 50px 10px;
+  font-weight: 600;
+  color: rgb(31, 31, 31);
 }
-.item-menu-logo {
-  width: 100%;
-  height: 200px;
+.item-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 10px;
 }
 </style>

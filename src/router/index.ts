@@ -27,6 +27,14 @@ const router = createRouter({
             meta: {
                 title: '适老化改造'
             }
+        },
+        {
+            path: '/customStar',
+            name: 'customStar',
+            component:()=> import(`../view/customStar/index.vue`),
+            meta: {
+                title:'定制星'
+            }
         }
     ]
 })
@@ -40,7 +48,7 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach((to, from) => {
     // console.log(to, from)
-    // console.log('afterEach')
+    // console.log(to.meta.title)
 })
 
 export default router;
