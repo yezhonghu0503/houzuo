@@ -1,11 +1,34 @@
 <script lang="ts">
 import { ref, onMounted } from "vue";
-
+import { useRouter, useRoute } from "vue-router";
+let menuList = [
+  {
+    logoUrl: "src/static/geriatricImg/yushi.jpg",
+  },
+  {
+    logoUrl: "src/static/geriatricImg/jingzi.jpg",
+  },
+  {
+    logoUrl: "src/static/geriatricImg/tijian.jpg",
+  },
+  {
+    logoUrl: "src/static/geriatricImg/chufang.jpg",
+  },
+];
 export default {
   components: {},
   setup() {
+    let router = useRouter();
+    let gobcakHome = () => {
+      router.push({
+        path: "/",
+      });
+    };
     onMounted(() => {});
-    return {};
+    return {
+      menuList,
+      gobcakHome,
+    };
   },
 };
 </script>
@@ -15,7 +38,10 @@ export default {
     <el-row class="head-row" :gutter="2">
       <el-col :span="16">
         <el-container class="head-tit">
-          <el-header>Header</el-header>
+          <el-header @click="gobcakHome" class="goback">
+            <el-icon :size="25"><Back /></el-icon>
+            <div>houzuo</div>
+          </el-header>
           <el-footer><h1>适老化改造</h1> </el-footer>
         </el-container>
       </el-col>
@@ -63,13 +89,16 @@ export default {
   <div id="main">
     <el-row justify="center">
       <el-col class="main-tips" :span="22">
-        <div class="tips-font">居家养老改造服务<div>防滑防护 照明</div></div>
+        <div class="tips-font">
+          居家养老改造服务
+          <div>防滑防护 照明</div>
+        </div>
       </el-col>
     </el-row>
-    <el-row class="main-down" justify="center">
-      <el-col class="main-menu" v-for="item in 4" :span="11">
+    <el-row gutter="10" class="main-down" justify="center">
+      <el-col class="main-menu" v-for="item in menuList" :span="11">
         <div class="menu-item">
-
+          <img class="item-menu-logo" :src="item.logoUrl" alt="" />
         </div>
       </el-col>
     </el-row>
@@ -117,23 +146,34 @@ export default {
   justify-content: start;
   text-align: start;
 }
-.tips-font{
+.tips-font {
   font-size: 18px;
   margin: 110px 15px;
   font-weight: 400;
 }
-.main-menu{
+.main-menu {
   display: flex;
-  justify-content: start;
+  justify-content: center;
+  /* background: turquoise; */
+  margin-bottom: 20px;
 }
-.menu-item{
-  width: 180px;
+.menu-item {
+  width: 100%;
   height: 250px;
   background: white;
-  margin-top: 15px;
   border-radius: 5px;
 }
-/* .main-down{
-  background: violet;
-} */
+.main-down {
+  margin-top: 15px;
+}
+.item-menu-logo {
+  width: 100%;
+  height: 200px;
+}
+.goback {
+  margin-top: 10px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
 </style>

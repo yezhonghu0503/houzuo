@@ -2,9 +2,7 @@
 import { ref, onMounted, onUpdated } from "vue";
 import {
   useRouter,
-  useRoute,
-  onBeforeRouteLeave,
-  onBeforeRouteUpdate,
+  useRoute
 } from "vue-router";
 import Renovate from "./renovate.vue";
 import Refurbish from "./refurbish.vue";

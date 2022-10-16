@@ -43,33 +43,33 @@ export default {
     }
     let menulist = [
       {
-        logoUrl: "src/static/刷子.png",
+        logoUrl: "src/static/homeImg/刷子.png",
         menuName: "炫彩刷新",
         menuAlias: "Wall Color",
         gotoPage: goInteriorDecoration,
       },
       {
-        logoUrl: "src/static/床头柜.png",
+        logoUrl: "src/static/homeImg/床头柜.png",
         menuName: "微装翻新",
         menuAlias: "Micro Room",
       },
       {
-        logoUrl: "src/static/U盘.png",
+        logoUrl: "src/static/homeImg/U盘.png",
         menuName: "整装定制",
         menuAlias: "Full Decoration",
       },
       {
-        logoUrl: "src/static/计划清单.png",
+        logoUrl: "src/static/homeImg/计划清单.png",
         menuName: "适老化改造",
         menuAlias: "Suitable For Old",
       },
       {
-        logoUrl: "src/static/电影.png",
+        logoUrl: "src/static/homeImg/电影.png",
         menuName: "定制星",
         menuAlias: "Customization",
       },
       {
-        logoUrl: "src/static/衣柜.png",
+        logoUrl: "src/static/homeImg/衣柜.png",
         menuName: "后作小店",
         menuAlias: "Store",
       },
